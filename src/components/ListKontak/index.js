@@ -1,10 +1,15 @@
-import {useEffect} from 'react';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getListKontak } from "../../actions/kontakAction";
 
 function ListKontak() {
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        // get list kontak
-    })
+  useEffect(() => {
+    // panggil action getListKontak
+    console.log("1. use effect component did mount");
+    dispatch(getListKontak());
+  }, [dispatch]);
 
   return (
     <div>
