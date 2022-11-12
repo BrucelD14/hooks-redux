@@ -1,7 +1,7 @@
 function AddKontak() {
     return(
         <div>
-        <h4>ADD KONTAK</h4>
+        <h4>Add Kontak</h4>
         </div>
     )
 }
