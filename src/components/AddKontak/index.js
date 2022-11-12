@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import {addKontak} from '../../actions/kontakAction';
 
 function AddKontak() {
   const [nama, setNama] = useState("");
@@ -10,7 +11,7 @@ function AddKontak() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // dispatch(AddKontak({ nama: nama, nohp: nohp }));
+    dispatch(addKontak({ nama: nama, nohp: nohp }));
   };
 
   return (

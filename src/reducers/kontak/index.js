@@ -13,7 +13,6 @@ const initialState = {
 const kontak = (state = initialState, action) => {
   switch (action.type) {
     case GET_LIST_KONTAK:
-        console.log("4. Masuk reducer : ", action);
       return {
         ...state,
         getListKontakResult: action.payload.data,
@@ -22,7 +21,6 @@ const kontak = (state = initialState, action) => {
       };
 
     case ADD_KONTAK:
-        console.log("4. Masuk reducer : ", action);
       return {
         ...state,
         addKontakResult: action.payload.data,

@@ -4,7 +4,6 @@ export const GET_LIST_KONTAK = "GET_LIST_KONTAK";
 export const ADD_KONTAK = "ADD_KONTAK";
 
 export const getListKontak = () => {
-  console.log("2. Masuk action");
   return (dispatch) => {
     // loading
     dispatch({
@@ -23,7 +22,6 @@ export const getListKontak = () => {
       timeout: 120000,
     })
       .then((response) => {
-        console.log('3. berhasil dapat data: ', response.data);
         // berhasil get API
         dispatch({
           type: GET_LIST_KONTAK,
@@ -35,7 +33,6 @@ export const getListKontak = () => {
         });
       })
       .catch((error) => {
-        console.log('3. gagal dapat data', error);
         // gagal get API
         dispatch({
           type: GET_LIST_KONTAK,
@@ -50,7 +47,6 @@ export const getListKontak = () => {
 };
 
 export const addKontak = (data) => {
-  console.log("2. Masuk action");
   return (dispatch) => {
     // loading
     dispatch({
@@ -70,7 +66,6 @@ export const addKontak = (data) => {
       data: data
     })
       .then((response) => {
-        console.log('3. berhasil dapat data: ', response.data);
         // berhasil get API
         dispatch({
           type: ADD_KONTAK,
@@ -82,7 +77,6 @@ export const addKontak = (data) => {
         });
       })
       .catch((error) => {
-        console.log('3. gagal dapat data', error);
         // gagal get API
         dispatch({
           type: ADD_KONTAK,
