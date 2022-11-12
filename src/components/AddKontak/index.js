@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import {addKontak} from '../../actions/kontakAction';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addKontak, getListKontak } from "../../actions/kontakAction";
 
 function AddKontak() {
   const [nama, setNama] = useState("");
   const [nohp, setNoHp] = useState("");
 
+  const { addKontakResult } = useSelector((state) => state.KontakReducer);
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -13,6 +14,15 @@ function AddKontak() {
 
     dispatch(addKontak({ nama: nama, nohp: nohp }));
   };
+
+  useEffect(() => {
+    if (addKontakResult) {
+        console.log('5. masuk component did update');
+      dispatch(getListKontak());
+      setNama("");
+      setNoHp("");
+    }
+  }, [addKontakResult, dispatch]);
 
   return (
     <div>
