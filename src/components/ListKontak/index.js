@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getListKontak } from "../../actions/kontakAction";
+import { deleteKontak, getListKontak } from "../../actions/kontakAction";
 
 function ListKontak() {
   const { getListKontakResult, getListKontakLoading, getListKontakError } =
@@ -19,9 +19,12 @@ function ListKontak() {
       <h4>LIST KONTAK</h4>
       {getListKontakResult ? (
         getListKontakResult.map((kontak) => {
-          return(
-            <p key={kontak.id}>{kontak.nama} - {kontak.nohp}</p>
-          )
+          return (
+            <p key={kontak.id}>
+              {kontak.nama} - {kontak.nohp} -{" "}
+              <button onClick={() => dispatch(deleteKontak(kontak.id))}>Hapus</button>
+            </p>
+          );
         })
       ) : getListKontakLoading ? (
         <i>Loading...</i>
