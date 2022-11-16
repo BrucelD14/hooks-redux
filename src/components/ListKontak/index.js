@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteKontak, getListKontak } from "../../actions/kontakAction";
 
 function ListKontak() {
-  const { getListKontakResult, getListKontakLoading, getListKontakError } =
-    useSelector((state) => state.KontakReducer);
+  const {
+    getListKontakResult,
+    getListKontakLoading,
+    getListKontakError,
+    deleteKontakResult,
+  } = useSelector((state) => state.KontakReducer);
 
   const dispatch = useDispatch();
 
@@ -14,6 +18,13 @@ function ListKontak() {
     dispatch(getListKontak());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (deleteKontakResult) {
+      console.log("5. masuk component did update");
+      dispatch(getListKontak());
+    }
+  }, [deleteKontakResult, dispatch]);
+
   return (
     <div>
       <h4>LIST KONTAK</h4>
@@ -22,7 +33,9 @@ function ListKontak() {
           return (
             <p key={kontak.id}>
               {kontak.nama} - {kontak.nohp} -{" "}
-              <button onClick={() => dispatch(deleteKontak(kontak.id))}>Hapus</button>
+              <button onClick={() => dispatch(deleteKontak(kontak.id))}>
+                Hapus
+              </button>
             </p>
           );
         })

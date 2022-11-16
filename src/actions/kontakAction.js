@@ -19,7 +19,7 @@ export const getListKontak = () => {
     //get API
     axios({
       method: "GET",
-      url: "http://localhost:3000/kontaks",
+      url: "http://localhost:3003/kontaks",
       timeout: 120000,
     })
       .then((response) => {
@@ -62,7 +62,7 @@ export const addKontak = (data) => {
     //get API
     axios({
       method: "POST",
-      url: "http://localhost:3000/kontaks",
+      url: "http://localhost:3003/kontaks",
       timeout: 120000,
       data: data
     })
@@ -107,7 +107,7 @@ export const deleteKontak = (id) => {
     //get API
     axios({
       method: "DELETE",
-      url: `http://localhost:3000/kontaks/${id}`,
+      url: `http://localhost:3003/kontaks/${id}`,
       timeout: 120000,
     })
       .then((response) => {
