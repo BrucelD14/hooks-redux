@@ -92,6 +92,7 @@ export const addKontak = (data) => {
 };
 
 export const deleteKontak = (id) => {
+  console.log('2. masuk action');
   return (dispatch) => {
     // loading
     dispatch({
@@ -110,6 +111,7 @@ export const deleteKontak = (id) => {
       timeout: 120000,
     })
       .then((response) => {
+        console.log('3. berhasil dapat data: ', response.data);
         // berhasil get API
         dispatch({
           type: DELETE_KONTAK,
@@ -121,6 +123,7 @@ export const deleteKontak = (id) => {
         });
       })
       .catch((error) => {
+        console.log('3. gagal ambil data');
         // gagal get API
         dispatch({
           type: DELETE_KONTAK,
